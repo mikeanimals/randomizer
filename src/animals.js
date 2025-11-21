@@ -237,8 +237,8 @@ export const animals = [
     display: true,
   },
   {
-    name: "Солнышко",
-    slug: "solnyshko",
+    name: "Солнышко и Кнопа",
+    slug: "solnyshko-and-knopa",
     emoji: "🐱",
     description: "Сестричка с большим сердцем",
     image: "/animals/solnyshko.jpeg",
@@ -274,8 +274,8 @@ export const animals = [
     display: true,
   },
   {
-    name: "Султан",
-    slug: "sultan",
+    name: "Султан и Ракета",
+    slug: "sultan-and-raketa",
     emoji: "🐱",
     description: "Неразлучник",
     image: "/animals/sultan.jpeg",
