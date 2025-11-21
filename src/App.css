@@ -235,6 +235,7 @@
   box-shadow: 0 5px 15px rgba(196, 30, 58, 0.4);
   width: 100%;
   max-width: 400px;
+  margin-bottom: 30px;
 }
 
 .randomize-button:hover:not(:disabled) {
@@ -271,6 +272,18 @@
   width: 100%;
 }
 
+.viewed-message {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  width: 100%;
+  text-align: center;
+}
+
 .reset-button {
   background: linear-gradient(135deg, #666 0%, #444 100%);
   color: white;
@@ -291,6 +304,36 @@
 }
 
 .reset-button:active {
+  transform: translateY(0);
+}
+
+.action-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.copy-link-button {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+  width: 100%;
+}
+
+.copy-link-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45, 80, 22, 0.5);
+}
+
+.copy-link-button:active {
   transform: translateY(0);
 }
 
@@ -386,7 +429,7 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .animal-image {

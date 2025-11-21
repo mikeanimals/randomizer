@@ -1,6 +1,7 @@
 export const animals = [
   {
     name: "Маня",
+    slug: "manya",
     emoji: "🐱",
     description: "Король джунглей, сильный и величественный хищник",
     image: "/animals/manya.jpeg",
@@ -17,6 +18,7 @@ export const animals = [
   },
   {
     name: "Симка",
+    slug: "simka",
     emoji: "🐱",
     description: "Кошечка, которая учится жить без страха",
     image: "/animals/simka.jpeg",
@@ -34,6 +36,7 @@ export const animals = [
   },
   {
     name: "Вася",
+    slug: "vasya",
     emoji: "🐱",
     description: "Спокойный мальчик, который очень ждёт своего чуда",
     image: "/animals/vasya.jpeg",
@@ -51,6 +54,7 @@ export const animals = [
   },
   {
     name: "Мотя",
+    slug: "motya",
     emoji: "🐱",
     description: "Ласковая девочка, которая учится жить без страха",
     image: "/animals/motya.jpeg",
@@ -69,6 +73,7 @@ export const animals = [
   },
   {
     name: "Матильда",
+    slug: "matilda",
     emoji: "🐱",
     description: "Смелая девочка с большим сердцем",
     image: "/animals/matilda.jpeg",
@@ -87,6 +92,7 @@ export const animals = [
   },
   {
     name: "Кенни",
+    slug: "kenny",
     emoji: "🐱",
     description: "Весёлый и игривый мальчик с разными глазами",
     image: "/animals/kenny.jpeg",
@@ -105,6 +111,7 @@ export const animals = [
   },
   {
     name: "Тиффани",
+    slug: "tiffany",
     emoji: "🐱",
     description: "Спокойная и ласковая девочка",
     image: "/animals/tiffany.jpeg",
@@ -122,6 +129,7 @@ export const animals = [
   },
   {
     name: "Аврора",
+    slug: "aurora",
     emoji: "🐱",
     description: "Добрая и нежная девочка, с непростым диагнозом- ФИП",
     image: "/animals/aurora.jpeg",
@@ -140,6 +148,7 @@ export const animals = [
   },
   {
     name: "Фигара",
+    slug: "figara",
     emoji: "🐱",
     description: "Маленькая шалунья и любительница игр",
     image: "/animals/figara.jpeg",

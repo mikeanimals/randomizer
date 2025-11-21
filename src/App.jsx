@@ -7,6 +7,7 @@ function App() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [hasSelected, setHasSelected] = useState(false);
+  const [viewedAnimals, setViewedAnimals] = useState([]); // Животные, просмотренные по ссылке
 
   const getSelectedAnimalsNames = () => {
     const selected = localStorage.getItem("selectedAnimalsHistory");
@@ -27,6 +28,45 @@ function App() {
   };
 
   useEffect(() => {
+    // Проверяем query параметры в URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const animalsParam = urlParams.get("animals");
+
+    if (animalsParam) {
+      // Восстанавливаем выбранных животных из URL по slug
+      const animalSlugs = animalsParam.split(",").filter((slug) => slug.trim());
+      const validAnimals = animals.filter(
+        (animal) =>
+          animal.slug &&
+          animalSlugs.includes(animal.slug) &&
+          animal.display !== false
+      );
+
+      if (validAnimals.length > 0) {
+        // Это просмотр по ссылке - НЕ сохраняем в историю выбора
+        // Только показываем для просмотра
+        setViewedAnimals(validAnimals);
+
+        // Если есть свои выбранные, не меняем текущее отображение
+        // Если своих нет, показываем первое из просмотренных
+        const savedAnimal = localStorage.getItem("secretSantaAnimal");
+        if (!savedAnimal) {
+          const firstAnimal = validAnimals[0];
+          setSelectedAnimal(firstAnimal);
+          setHasSelected(true);
+        }
+
+        // Очищаем URL от параметров
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+        // НЕ делаем return, чтобы загрузить свои выбранные, если они есть
+      }
+    }
+
+    // Если нет query параметров, загружаем из localStorage
     const savedAnimal = localStorage.getItem("secretSantaAnimal");
     if (savedAnimal) {
       const animal = JSON.parse(savedAnimal);
@@ -43,8 +83,8 @@ function App() {
     setTimeout(() => {
       const selectedNames = getSelectedAnimalsNames();
 
-      // Проверяем лимит в 3 подопечных
-      if (selectedNames.length >= 3) {
+      // Проверяем лимит в 2 подопечных
+      if (selectedNames.length >= 2) {
         setIsAnimating(false);
         return;
       }
@@ -70,15 +110,26 @@ function App() {
       localStorage.setItem("secretSantaAnimal", JSON.stringify(animal));
       addToSelectedHistory(animal.name);
       setIsAnimating(false);
+
+      // Прокручиваем вверх после выбора
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, 300);
   };
 
   const selectAnother = () => {
     // Сохраняем текущее животное в истории, но позволяем выбрать еще одно
+    // НЕ очищаем просмотренных животных - они должны оставаться
     localStorage.removeItem("secretSantaAnimal");
     setSelectedAnimal(null);
     setHasSelected(false);
     setImageError(false);
+    // НЕ очищаем viewedAnimals - они должны оставаться для просмотра
+
+    // Сразу выбираем новое животное и прокручиваем вверх
+    setTimeout(() => {
+      getRandomAnimal();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
   };
 
   const showSelectedAnimal = (animal) => {
@@ -86,6 +137,53 @@ function App() {
     setHasSelected(true);
     setImageError(false);
     localStorage.setItem("secretSantaAnimal", JSON.stringify(animal));
+    // Прокручиваем страницу вверх
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const copyLink = async () => {
+    const selectedNames = getSelectedAnimalsNames();
+    if (selectedNames.length === 0) {
+      alert("Сначала выберите хотя бы одного подопечного!");
+      return;
+    }
+
+    // Получаем slug для выбранных животных
+    const selectedAnimals = animals.filter(
+      (animal) => selectedNames.includes(animal.name) && animal.slug
+    );
+    const animalSlugs = selectedAnimals.map((animal) => animal.slug);
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    const animalsParam = animalSlugs.join(",");
+    const shareUrl = `${baseUrl}?animals=${animalsParam}`;
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      alert(
+        "✅ Ссылка скопирована, теперь вы можете поделиться своим выбором!"
+      );
+    } catch (err) {
+      // Fallback для старых браузеров
+      const textArea = document.createElement("textarea");
+      textArea.value = shareUrl;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        alert(
+          "✅ Ссылка скопирована, теперь вы можете поделиться своим выбором!"
+        );
+      } catch (err) {
+        alert(
+          "Не удалось скопировать ссылку. Попробуйте скопировать вручную:\n" +
+            shareUrl
+        );
+      }
+      document.body.removeChild(textArea);
+    }
   };
 
   return (
@@ -161,7 +259,7 @@ function App() {
           )}
         </div>
 
-        {!hasSelected && (
+        {!hasSelected && getSelectedAnimals().length < 2 && (
           <button
             className="randomize-button"
             onClick={getRandomAnimal}
@@ -172,41 +270,84 @@ function App() {
               : "🎁 Узнать своего подопечного"}
           </button>
         )}
-        {hasSelected && (
+
+        {/* Просмотр по ссылке - показываем всегда, если есть */}
+        {viewedAnimals.length > 0 && (
+          <div className="selected-actions">
+            <div className="viewed-message">
+              👀 Просматриваемые подопечные, которыми поделились с вами
+            </div>
+            <div className="selected-animals-list">
+              <h3 className="selected-animals-title">
+                🎄 Просматриваемые подопечные ({viewedAnimals.length}):
+              </h3>
+              <div className="selected-animals-grid">
+                {viewedAnimals.map((animal, index) => (
+                  <div
+                    key={`viewed-${animal.name}`}
+                    className={`selected-animal-item ${
+                      selectedAnimal?.name === animal.name &&
+                      getSelectedAnimals().find(
+                        (a) => a.name === animal.name
+                      ) === undefined
+                        ? "current"
+                        : ""
+                    }`}
+                    onClick={() => showSelectedAnimal(animal)}
+                  >
+                    <div className="selected-animal-emoji">{animal.emoji}</div>
+                    <div className="selected-animal-name">{animal.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {getSelectedAnimals().length === 0 && (
+              <button className="reset-button" onClick={selectAnother}>
+                🎁 Выбрать своих подопечных
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Свой выбор */}
+        {getSelectedAnimals().length > 0 && (
           <div className="selected-actions">
             <div className="already-selected-message">
               🎁 Вы уже выбрали своего подопечного!
             </div>
 
-            {getSelectedAnimals().length > 0 && (
-              <div className="selected-animals-list">
-                <h3 className="selected-animals-title">
-                  🎄 Ваши выбранные подопечные ({getSelectedAnimals().length}):
-                </h3>
-                <div className="selected-animals-grid">
-                  {getSelectedAnimals().map((animal, index) => (
-                    <div
-                      key={animal.name}
-                      className={`selected-animal-item ${
-                        selectedAnimal?.name === animal.name ? "current" : ""
-                      }`}
-                      onClick={() => showSelectedAnimal(animal)}
-                    >
-                      <div className="selected-animal-emoji">
-                        {animal.emoji}
-                      </div>
-                      <div className="selected-animal-name">{animal.name}</div>
-                    </div>
-                  ))}
-                </div>
+            <div className="selected-animals-list">
+              <h3 className="selected-animals-title">
+                🎄 Ваши выбранные подопечные ({getSelectedAnimals().length}):
+              </h3>
+              <div className="selected-animals-grid">
+                {getSelectedAnimals().map((animal, index) => (
+                  <div
+                    key={animal.name}
+                    className={`selected-animal-item ${
+                      selectedAnimal?.name === animal.name ? "current" : ""
+                    }`}
+                    onClick={() => showSelectedAnimal(animal)}
+                  >
+                    <div className="selected-animal-emoji">{animal.emoji}</div>
+                    <div className="selected-animal-name">{animal.name}</div>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
 
-            {getSelectedAnimals().length < 3 && (
-              <button className="reset-button" onClick={selectAnother}>
-                🎁 Выбрать еще одного
-              </button>
-            )}
+            <div className="action-buttons-group">
+              {getSelectedAnimals().length > 0 && (
+                <button className="copy-link-button" onClick={copyLink}>
+                  📋 Скопировать ссылку
+                </button>
+              )}
+              {getSelectedAnimals().length < 2 && (
+                <button className="reset-button" onClick={selectAnother}>
+                  🎁 Выбрать еще одного
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>
