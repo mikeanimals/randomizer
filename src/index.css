@@ -12,14 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(135deg, #c41e3a 0%, #2d5016 50%, #d4af37 100%);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #root {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
+  margin: 0 auto;
 }
 
