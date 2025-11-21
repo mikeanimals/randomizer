@@ -1,0 +1,244 @@
+.app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.title {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #c41e3a 0%, #2d5016 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.result-container {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.animal-card {
+  animation: fadeIn 0.5s ease-in;
+  width: 100%;
+}
+
+.animal-card.animating {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.animal-image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animal-emoji {
+  font-size: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.animal-name {
+  font-size: 2rem;
+  color: #c41e3a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.santa-badge {
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+}
+
+.gift-message {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+}
+
+.animal-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.placeholder p {
+  font-size: 1.2rem;
+}
+
+.randomize-button {
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(196, 30, 58, 0.4);
+  width: 100%;
+  max-width: 400px;
+}
+
+.randomize-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 30, 58, 0.6);
+}
+
+.randomize-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.randomize-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.selected-actions {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.already-selected-message {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+  color: white;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(45, 80, 22, 0.4);
+  width: 100%;
+}
+
+.reset-button {
+  background: linear-gradient(135deg, #666 0%, #444 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .animal-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .animal-name {
+    font-size: 1.5rem;
+  }
+}
