@@ -289,7 +289,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Султану и Ракете вкусняшки, уют и любовь!",
-    display: true,
+    display: false,
   },
   {
     name: "Тая",
