@@ -32,7 +32,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты станет для Симки поддержкой и маленьким шагом к полному выздоровлению.",
-    display: true,
+    display: false,
   },
   {
     name: "Вася",
@@ -216,7 +216,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Афоне радость, вкусняшки и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Моня",
@@ -343,7 +343,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Шеде вкусняшки, уют и ощущение заботы!",
-    display: true,
+    display: false,
   },
   {
     name: "Терра",
@@ -586,7 +586,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Мяте радость, вкусняшки и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Филя",
