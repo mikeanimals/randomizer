@@ -125,7 +125,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Тиффани радость, вкусняшки и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Аврора",
