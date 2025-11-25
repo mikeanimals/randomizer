@@ -416,7 +416,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Софийке радость, уют и море хорошего настроения!",
-    display: true,
+    display: false,
   },
   {
     name: "Мышка",
