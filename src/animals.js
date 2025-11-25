@@ -88,7 +88,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Матильде удобство, уют и маленькое чудо в её жизни.",
-    display: true,
+    display: false,
   },
   {
     name: "Кенни",
@@ -107,7 +107,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Кенни радость, вкусняшки и весёлые моменты!",
-    display: true,
+    display: false,
   },
   {
     name: "Тиффани",
@@ -181,7 +181,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Коле радость, вкусняшки и немного волшебства!",
-    display: true,
+    display: false,
   },
   {
     name: "Сири",
@@ -530,7 +530,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Дыне вкусняшки, уют и возможность продолжать быть главной драматической звездой передержки!",
-    display: true,
+    display: false,
   },
   {
     name: "Букля",
