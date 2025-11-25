@@ -14,7 +14,7 @@ export const animals = [
       "и, конечно, немного чудес и теплоты",
     ],
     closingMessage: "Пусть ваш подарок станет для неё искоркой счастья!",
-    display: true,
+    display: false,
   },
   {
     name: "Симка",
