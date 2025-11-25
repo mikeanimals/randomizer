@@ -83,8 +83,8 @@ function App() {
     setTimeout(() => {
       const selectedNames = getSelectedAnimalsNames();
 
-      // Limit von 2 Tieren prüfen
-      if (selectedNames.length >= 2) {
+      // Limit von 1 Tier prüfen
+      if (selectedNames.length >= 1) {
         setIsAnimating(false);
         return;
       }
@@ -251,7 +251,7 @@ function App() {
           )}
         </div>
 
-        {!hasSelected && getSelectedAnimals().length < 2 && (
+        {!hasSelected && getSelectedAnimals().length < 1 && (
           <button
             className="randomize-button"
             onClick={getRandomAnimal}
@@ -308,7 +308,7 @@ function App() {
 
             <div className="selected-animals-list">
               <h3 className="selected-animals-title">
-                🎄 Ihre ausgewählten Tiere ({getSelectedAnimals().length}):
+                🎄 Ihr ausgewähltes Tier:
               </h3>
               <div className="selected-animals-grid">
                 {getSelectedAnimals().map((animal, index) => (
@@ -330,11 +330,6 @@ function App() {
               {getSelectedAnimals().length > 0 && (
                 <button className="copy-link-button" onClick={copyLink}>
                   📋 Link kopieren
-                </button>
-              )}
-              {getSelectedAnimals().length < 2 && (
-                <button className="reset-button" onClick={selectAnother}>
-                  🎁 Noch eines auswählen
                 </button>
               )}
             </div>
