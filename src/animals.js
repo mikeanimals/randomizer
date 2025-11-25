@@ -325,7 +325,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Муле радость, вкусняшки и тепло!",
-    display: false,
+    display: true,
   },
   {
     name: "Шеда",
