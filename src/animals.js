@@ -378,7 +378,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Жуне комфорт, радость и тепло!",
-    display: true,
+    display: false,
   },
   {
     name: "Кася",
