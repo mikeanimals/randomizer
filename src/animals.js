@@ -307,7 +307,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Тае радость, весёлые игры и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Муля",
