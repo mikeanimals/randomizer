@@ -50,7 +50,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты станет для него маленьким шагом к большой мечте — однажды стать домашним и любимым.",
-    display: true,
+    display: false,
   },
   {
     name: "Мотя",
