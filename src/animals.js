@@ -604,7 +604,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты приносит Филе здоровье, вкусный рацион и светлое ощущение заботы!",
-    display: true,
+    display: false,
   },
   {
     name: "Шипучка",
@@ -661,7 +661,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть Санта подарит Тихону ощущение дома и много нежности — он так этого заслуживает!",
-    display: true,
+    display: false,
   },
   {
     name: "Тишка",
