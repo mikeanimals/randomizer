@@ -253,7 +253,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Солнышку и Кнопе радость, уют и веру в чудо!",
-    display: true,
+    display: false,
   },
   {
     name: "Байка",
