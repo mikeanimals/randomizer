@@ -69,7 +69,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты станет для Моти спокойствием, заботой и маленьким чудом, которого она так заслуживает.",
-    display: true,
+    display: false,
   },
   {
     name: "Матильда",
@@ -144,7 +144,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Авроре радость, уют и немного новогодней магии!",
-    display: true,
+    display: false,
   },
   {
     name: "Фигара",
