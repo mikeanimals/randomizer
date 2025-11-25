@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "yn-secret-santa"
+    "default": "yn-secret-santa",
+    "de": "yn-secret-santa-de"
   }
 }
