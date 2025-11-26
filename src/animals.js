@@ -623,7 +623,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты станет для Шипучки шагом к доверию, спокойствию и маленькому новогоднему чуду.",
-    display: true,
+    display: false,
   },
   {
     name: "Соня",
