@@ -163,7 +163,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Фигаре весёлые игры, вкусняшки и любовь!",
-    display: true,
+    display: false,
   },
   {
     name: "Кола",
@@ -678,7 +678,7 @@ export const animals = [
       "уютное место для отдыха",
     ],
     closingMessage: "Пусть подарок Санты принесёт Тишке радость, заботу и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Белка",
