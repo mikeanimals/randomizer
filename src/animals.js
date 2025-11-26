@@ -604,7 +604,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты приносит Филе здоровье, вкусный рацион и светлое ощущение заботы!",
-    display: false,
+    display: true,
   },
   {
     name: "Шипучка",
