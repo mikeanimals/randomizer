@@ -492,7 +492,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Барсику уют, чистоту и маленькое новогоднее чудо, которого он так достоин!",
-    display: true,
+    display: false,
   },
   {
     name: "Мия",
@@ -568,7 +568,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Женьку вкусняшки, удовольствие и возможность оставаться таким же харизматичным котиком, как всегда!",
-    display: true,
+    display: false,
   },
   {
     name: "Мята",
@@ -604,7 +604,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты приносит Филе здоровье, вкусный рацион и светлое ощущение заботы!",
-    display: true,
+    display: false,
   },
   {
     name: "Шипучка",
