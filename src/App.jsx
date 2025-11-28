@@ -83,8 +83,8 @@ function App() {
     setTimeout(() => {
       const selectedNames = getSelectedAnimalsNames();
 
-      // Проверяем лимит в 2 подопечных
-      if (selectedNames.length >= 2) {
+      // Проверяем лимит в 3 подопечных
+      if (selectedNames.length >= 3) {
         setIsAnimating(false);
         return;
       }
@@ -259,7 +259,7 @@ function App() {
           )}
         </div>
 
-        {!hasSelected && getSelectedAnimals().length < 2 && (
+        {!hasSelected && getSelectedAnimals().length < 3 && (
           <button
             className="randomize-button"
             onClick={getRandomAnimal}
@@ -342,7 +342,7 @@ function App() {
                   📋 Скопировать ссылку
                 </button>
               )}
-              {getSelectedAnimals().length < 2 && (
+              {getSelectedAnimals().length < 3 && (
                 <button className="reset-button" onClick={selectAnother}>
                   🎁 Выбрать еще одного
                 </button>
