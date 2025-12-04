@@ -234,7 +234,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Монечке здоровье и хорошую семью!",
-    display: true,
+    display: false,
   },
   {
     name: "Солнышко и Кнопа",
