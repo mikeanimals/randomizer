@@ -398,7 +398,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Касе вкусняшки, нежность и уверенность, что чудеса случаются!",
-    display: true,
+    display: false,
   },
   {
     name: "Софийка",
