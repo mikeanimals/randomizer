@@ -144,7 +144,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Авроре радость, уют и немного новогодней магии!",
-    display: true,
+    display: false,
   },
   {
     name: "Фигара",
@@ -254,7 +254,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Солнышку и Кнопе радость, уют и веру в чудо!",
-    display: true,
+    display: false,
   },
   {
     name: "Байка",
@@ -290,7 +290,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Султану и Ракете вкусняшки, уют и любовь!",
-    display: true,
+    display: false,
   },
   {
     name: "Тая",
