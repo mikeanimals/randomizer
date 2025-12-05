@@ -106,7 +106,7 @@ export const animals = [
     wishlist: [],
     closingMessage:
       "Santa, ich wünsche dir magische Stimmung, viele Lächeln und Freude an jedem Tag! 🎄",
-    display: true,
+    display: false,
   },
   {
     name: "Sheda",
