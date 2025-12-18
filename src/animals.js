@@ -216,7 +216,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Афоне радость, вкусняшки и уют!",
-    display: true,
+    display: false,
   },
   {
     name: "Моня",
@@ -379,7 +379,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты подарит Жуне комфорт, радость и тепло!",
-    display: true,
+    display: false,
   },
   {
     name: "Кася",
@@ -569,7 +569,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть подарок Санты принесёт Женьку вкусняшки, удовольствие и возможность оставаться таким же харизматичным котиком, как всегда!",
-    display: true,
+    display: false,
   },
   {
     name: "Мята",
@@ -662,7 +662,7 @@ export const animals = [
     ],
     closingMessage:
       "Пусть Санта подарит Тихону ощущение дома и много нежности — он так этого заслуживает!",
-    display: true,
+    display: false,
   },
   {
     name: "Тишка",
